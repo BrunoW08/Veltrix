@@ -1,1 +1,44 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7c35e8" />
+  <meta name="description" content="Veltrix: periféricos e tecnologia para seu setup." />
+  <title>Checkout | Veltrix</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="notice">Frete grátis acima de R$ 199 <span>•</span> Tecnologia do seu jeito.</div>
+  <header class="site-header">
+    <div class="container header-content">
+      <button id="menuButton" class="icon-button mobile-only" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <a href="index.html" class="logo" data-page="home" aria-label="Veltrix, página inicial"><span class="logo-mark">V</span>Veltrix</a>
+      <form id="searchForm" class="search-bar" role="search"><input id="searchInput" aria-label="Pesquisar produtos" placeholder="Buscar produtos, marcas e acessórios..." autocomplete="off"><button aria-label="Pesquisar" type="submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button></form>
+      <div class="header-actions">
+        <button id="themeButton" class="icon-button" aria-label="Alternar modo escuro" title="Alternar tema"><svg viewBox="0 0 24 24"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z"/></svg></button>
+        <button class="icon-button desktop-only" data-page="favorites" aria-label="Favoritos" title="Favoritos"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        <button class="icon-button desktop-only" data-page="login" aria-label="Minha conta" title="Minha conta"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button>
+        <button class="icon-button cart-icon" data-page="cart" aria-label="Carrinho" title="Carrinho"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span id="cartCount" class="cart-count">0</span></button>
+      </div>
+    </div>
+    <nav class="desktop-nav container" aria-label="Menu principal">
+      <a href="index.html" data-page="home">Início</a><a href="produtos.html" data-page="catalog">Todos os produtos</a><a href="produtos.html" data-category="Teclados">Teclados</a><a href="produtos.html" data-category="Mouses">Mouses</a><a href="produtos.html" data-category="Áudio">Áudio</a><a href="produtos.html" data-category="Acessórios">Acessórios</a><a href="produtos.html" data-category="Monitores">Monitores</a><a href="produtos.html" data-category="Armazenamento">SSD</a>
+    </nav>
+    <form id="mobileSearchForm" class="mobile-search container"><input id="mobileSearchInput" placeholder="O que você procura?" aria-label="Pesquisar no celular"/><button aria-label="Pesquisar" type="submit">Buscar</button></form>
+  </header>
+  <div id="menuBackdrop" class="menu-backdrop" hidden></div>
+  <aside id="mobileMenu" class="mobile-menu" aria-label="Menu mobile" aria-hidden="true">
+    <div class="menu-top"><strong>Veltrix</strong><button id="menuClose" class="icon-button" aria-label="Fechar menu"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="menu-subtitle">Tecnologia do seu jeito.</p>
+    <div class="menu-label">NAVEGAR</div>
+    <button data-page="home">Início <span>›</span></button><button data-page="catalog">Explorar produtos <span>›</span></button><button data-page="cart">Meu carrinho <span>›</span></button><button data-page="favorites">Favoritos <span>›</span></button><button data-page="login">Minha conta <span>›</span></button><button data-page="orders">Meus pedidos <span>›</span></button>
+    <div class="menu-label">APARÊNCIA</div><button id="mobileThemeButton">Ativar modo escuro <span>☾</span></button>
+  </aside>
+  <main id="app" class="container" tabindex="-1"></main>
+  <footer class="site-footer"><div class="container footer-content"><div><a class="logo" data-page="home" href="index.html"><span class="logo-mark">V</span>Veltrix</a><p>Tecnologia para estudar, trabalhar e jogar com mais conforto.</p></div><div><strong>Explore</strong><a data-page="catalog" href="produtos.html">Produtos</a><a data-page="favorites" href="favoritos.html">Favoritos</a><a data-page="orders" href="pedidos.html">Meus pedidos</a></div><div><strong>Suporte</strong><p>Central de ajuda</p><p>Trocas e devoluções</p><p>Compras fictícias para projeto escolar</p></div></div><div class="copyright">© 2026 Veltrix • Projeto escolar</div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
