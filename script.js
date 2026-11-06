@@ -1,4 +1,4 @@
-// Veltrix: loja demonstrativa feita em JavaScript puro.
+
 const produtos = [
   {id:1,nome:'Mouse Glide Pro 26K',categoria:'Mouses',preco:279.90,antigo:349.90,avaliacao:4.7,imagem:'img/mouse-glide-pro.jpg',descricao:'Sensor de 26.000 DPI, apenas 58g e switches precisos para jogos e produtividade.',detalhes:['Sensor óptico 26.000 DPI','Peso de 58g','6 botões programáveis','USB-C / 2,4 GHz','RGB personalizável','Garantia de 12 meses']},
   {id:2,nome:'Headset Pulse X7 sem fio',categoria:'Áudio',preco:499.90,antigo:649.90,avaliacao:4.8,imagem:'img/headset-pulse.jpg',descricao:'Áudio imersivo, microfone ajustável e conforto para longas sessões.',detalhes:['Drivers de 50 mm','Conexão sem fio','Microfone ajustável','Almofadas acolchoadas','Som estéreo','Garantia de 12 meses']},
@@ -52,7 +52,7 @@ function abrirMenu(aberto){const menu=document.getElementById('mobileMenu');menu
 function mudarTema(){document.body.classList.toggle('dark');localStorage.setItem('veltrixTema',document.body.classList.contains('dark')?'dark':'light');sincronizarTema();abrirMenu(false)}
 function sincronizarTema(){const dark=document.body.classList.contains('dark');document.getElementById('themeButton').setAttribute('aria-label',dark?'Ativar modo claro':'Ativar modo escuro');document.getElementById('themeButton').title=dark?'Ativar modo claro':'Ativar modo escuro';document.getElementById('mobileThemeButton').innerHTML=dark?'☀ Ativar modo claro <span>›</span>':'☾ Ativar modo escuro <span>›</span>'}
 function ir(paginaNova){
-  // A conta cadastrada continua acessível em vez de pedir login novamente.
+
   if(paginaNova==='login' && usuario)paginaNova='account';
   abrirMenu(false);
   const arquivo=arquivosPaginas[paginaNova]||arquivosPaginas.home;
@@ -122,7 +122,7 @@ function cadastroPagina(){return `<div class="auth-layout"><div class="auth-asid
 function loginPagina(){return `<div class="auth-layout"><div class="auth-aside"><span class="eyebrow">Bem-vindo</span><h2>Acesse sua conta</h2><p>Continue suas compras, acompanhe pedidos e encontre novidades no seu setup.</p><ul><li>✓ Acompanhe pedidos e histórico</li><li>✓ Encontre seus produtos favoritos</li><li>✓ Compra demonstrativa segura</li></ul></div><section class="surface auth-form"><h1>Entrar na sua conta</h1><p class="muted">Esta é uma simulação, sem senha real.</p><form id="loginForm"><div class="field"><label>E-mail<input type="email" name="email" required placeholder="Digite seu e-mail" autocomplete="email"></label></div><div class="field"><label>Senha demonstrativa<input type="password" name="senha" minlength="4" required placeholder="Digite uma senha fictícia"></label></div><button class="btn full" type="submit">Entrar</button></form><p>Não possui uma conta? <a href="cadastro.html" data-page="register">Criar conta</a></p></section></div>`}
 function cadastroPagina(){return `<div class="auth-layout"><div class="auth-aside"><span class="eyebrow">Bem-vindo</span><h2>Cadastre-se e acompanhe seu setup</h2><p>Salve favoritos e acompanhe suas compras demonstrativas.</p><ul><li>✓ Histórico de compras</li><li>✓ Ofertas exclusivas (fictícias)</li><li>✓ Ambiente de demonstração</li></ul></div><section class="surface auth-form"><h1>Criar sua conta</h1><p class="muted">Cadastre-se para comprar na Veltrix (simulação).</p><form id="registerForm"><div class="field"><label>Nome completo<input type="text" name="nome" required placeholder="Digite seu nome" autocomplete="name"></label></div><div class="field"><label>E-mail<input type="email" name="email" required placeholder="Digite seu e-mail" autocomplete="email"></label></div><div class="field"><label>Senha demonstrativa<input type="password" name="senha" required minlength="4" placeholder="Crie uma senha fictícia"></label></div><div class="field"><label>Confirmar senha<input type="password" name="confirmacao" required minlength="4" placeholder="Repita a senha fictícia"></label></div><label class="agree"><input type="checkbox" required> Concordo em participar desta simulação acadêmica</label><button class="btn full" type="submit">Criar conta</button></form><p>Já tem uma conta? <a href="login.html" data-page="login">Entrar</a></p></section></div>`}
 function renderizar(){const paginas={home,catalog:catalogo,product:detalhes,cart:carrinhoPagina,checkout,success:confirmacao,favorites:favoritosPagina,account:conta,orders:pedidosPagina,login:loginPagina,register:cadastroPagina};app.innerHTML=(paginas[pagina]||home)();atualizarContador()}
-// Uma única escuta de cliques cuida dos botões gerados pelo JavaScript.
+
 document.addEventListener('click',event=>{
  const b=event.target.closest('button,a');if(!b)return;
  if(b.dataset.logout){event.preventDefault();usuario=null;localStorage.removeItem('veltrixUsuario');ir('login');return}
@@ -139,7 +139,7 @@ document.addEventListener('change',event=>{
  if(event.target.id==='sortProducts'){ordem=event.target.value;renderizar()}
  if(event.target.name==='pagamento'){
   pagamento=event.target.value;
-  // Atualiza somente os campos de pagamento para preservar endereço já digitado.
+
   document.getElementById('paymentFields').innerHTML=camposPagamento();
  }
 });
@@ -162,7 +162,7 @@ document.addEventListener('submit',event=>{
   event.preventDefault();if(!carrinho.length)return notificar('Seu carrinho está vazio.');
   const dados=new FormData(event.target);
   if(pagamento!=='pix'){
-   // Esses campos nunca são enviados a servidores e não ficam no armazenamento.
+
    if(!String(dados.get('numeroCartao')||'').trim()||!String(dados.get('titular')||'').trim()||!String(dados.get('validade')||'').trim()||!String(dados.get('cvv')||'').trim()){notificar('Preencha os campos do cartão fictício.');return}
   }
   confirmar(dados);
@@ -176,6 +176,6 @@ document.getElementById('menuBackdrop').addEventListener('click',()=>abrirMenu(f
 document.addEventListener('keydown',e=>{if(e.key==='Escape')abrirMenu(false)});
 if(localStorage.getItem('veltrixTema')==='dark')document.body.classList.add('dark');
 sincronizarTema();
-// A tela inicial é definida pelo nome do arquivo HTML aberto.
+
 renderizar();
 
